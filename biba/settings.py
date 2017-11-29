@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-
+from .environ import *
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -77,10 +77,11 @@ WSGI_APPLICATION = 'biba.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'db400t14mvnk7j',
-        'USER': 'avxyuwfmeogygl',
-        'PASSWORD':'9488f59775b1f047476ee55f317deabb3f1e66827cfc057f279b897bc0476dce',
-        'Port':'5432',
+        'NAME': DB_NAME,
+        'USER': MYSQL_USER,
+        'PASSWORD':MYSQL_PASSWORD,
+        'PORT':MYSQL_PORT,
+        'HOST':MYSQL_HOST,
     }
 }
 
