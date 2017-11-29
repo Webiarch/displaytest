@@ -77,9 +77,10 @@ WSGI_APPLICATION = 'biba.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'display',
-        'USER': 'root',
-        'PASSWORD':'root',
+        'NAME': 'db400t14mvnk7j',
+        'USER': 'avxyuwfmeogygl',
+        'PASSWORD':'9488f59775b1f047476ee55f317deabb3f1e66827cfc057f279b897bc0476dce',
+        'Port':'5432',
     }
 }
 
