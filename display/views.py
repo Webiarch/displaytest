@@ -39,7 +39,7 @@ class AuthCallback(View):
         bc_user_id = token['user']['id']
         email = token['user']['email']
         access_token = token['access_token']
-
+        print("====================")
         store = Store.objects.get(store_hash=store_hash).first()
         if store is None:
             store = Store.create(store_hash, access_token, scope)
