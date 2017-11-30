@@ -8,7 +8,7 @@ from .models import *
 os.environ['APP_CLIENT_SECRET'] = 'oam9jfaj4n7olb6gnxetiza5jozt83h'
 
 api = BigcommerceApi(
-    client_id='hrc4ek4ze2p77enpe08dq56plmdz6z8',
+    client_id='dfgb1ixry16pqf83tvdwaamvev8d4a7',
     store_hash='d2mevog548',
     access_token='tqmm1s7dvi36mrmqie7yihagrj24owp')
 
