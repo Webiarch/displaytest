@@ -14,6 +14,9 @@ ENVIRON_VARIABLES = [
     'MYSQL_PASSWORD',
     'MYSQL_HOST',
     'MYSQL_PORT',
+    'APP_URL',
+    'APP_CLIENT_ID',
+    'APP_CLIENT_SECRET',
 ]
 
 self = sys.modules[__name__]
