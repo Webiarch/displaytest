@@ -18,10 +18,9 @@ class Display(View):
     template = "display.html"
 
     def get(self, request):
-        customer = api.Customers.all(email='gabaniromit4892@gmail.com')[0]
+        customer = api.Customers.all()
         # login_token = bigcommerce.customer_login_token.create(api, customer.id)
         # print('%s/login/token/%s' % ('http://localhost:8000', login_token))
-
         return render(request, self.template, locals())
 
 
