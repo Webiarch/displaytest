@@ -49,7 +49,7 @@ class AuthCallback(View):
 
         store = Store.objects.filter(store_hash=store_hash).first()
         if store is None:
-            store = Store.objects.create(store_hash, access_token, scope)
+            store = Store.objects.create(store_hash, access_token, scope, '1', '1')
         else:
             store.objects.update(
                 access_token=access_token,
