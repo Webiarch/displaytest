@@ -7,10 +7,10 @@ from .models import *
 
 os.environ['APP_CLIENT_SECRET'] = 'oam9jfaj4n7olb6gnxetiza5jozt83h'
 
-# api = bigcommerce.api.BigcommerceApi(
-#     client_id='hrc4ek4ze2p77enpe08dq56plmdz6z8',
-#     store_hash='d2mevog548',
-#     access_token='tqmm1s7dvi36mrmqie7yihagrj24owp')
+api = BigcommerceApi(
+    client_id='hrc4ek4ze2p77enpe08dq56plmdz6z8',
+    store_hash='d2mevog548',
+    access_token='tqmm1s7dvi36mrmqie7yihagrj24owp')
 
 
 class Display(View):
@@ -18,7 +18,7 @@ class Display(View):
     template = "display.html"
 
     def get(self, request):
-        # customer = api.Customers.all(email='gabaniromit4892@gmail.com')[0]
+        customer = api.Customers.all(email='gabaniromit4892@gmail.com')[0]
         # login_token = bigcommerce.customer_login_token.create(api, customer.id)
         # print('%s/login/token/%s' % ('http://localhost:8000', login_token))
 
