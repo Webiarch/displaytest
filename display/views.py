@@ -32,11 +32,15 @@ class AuthCallback(View):
 
     def get(self, request):
         code = request.GET['code']
+        print("code=====> ", code)
         context = request.GET['context']
+        print("context=====> ", context)
         scope = request.GET['scope']
+        print("scope=====> ", scope)
         store_hash = context.split('/')[1]
+        print("store has=====> ", store_hash)
         redirect = settings.APP_URL + '/bigcommerce/callback'
-
+        print("redirect=====> ", redirect)
         client = BigcommerceApi(client_id=settings.APP_CLIENT_ID, store_hash=store_hash)
         token = client.oauth_fetch_token(settings.APP_CLIENT_SECRET, code, context, scope, redirect)
         bc_user_id = token['user']['id']
