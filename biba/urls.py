@@ -18,8 +18,8 @@ from django.contrib import admin
 from display import views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin', admin.site.urls),
+    url(r'^bigcommerce/callback', views.AuthCallback.as_view(), name='authcallback'),
     url(r'', views.Display.as_view(), name='display'),
-    url(r'bigcommerce/callback', views.AuthCallback, name='authcallback'),
 
 ]

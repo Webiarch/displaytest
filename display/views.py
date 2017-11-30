@@ -22,15 +22,18 @@ class Display(View):
         # customer = api.Customers.all()
         # login_token = bigcommerce.customer_login_token.create(api, customer.id)
         # print('%s/login/token/%s' % ('http://localhost:8000', login_token))
+        print("display")
         return render(request, self.template, locals())
 
 
 class AuthCallback(View):
 
+    template = "callback.html"
+
     def get(self, request):
-        code = request.args['code']
-        context = request.args['context']
-        scope = request.args['scope']
+        code = request.GET['code']
+        context = request.GET['context']
+        scope = request.GET['scope']
         store_hash = context.split('/')[1]
         redirect = settings.APP_URL + '/bigcommerce/callback'
 
@@ -39,7 +42,6 @@ class AuthCallback(View):
         bc_user_id = token['user']['id']
         email = token['user']['email']
         access_token = token['access_token']
-        print("====================")
         store = Store.objects.get(store_hash=store_hash).first()
         if store is None:
             store = Store.create(store_hash, access_token, scope)
@@ -69,3 +71,5 @@ class AuthCallback(View):
             storeuser = StoreUser.create(store, user, admin=True)
         else:
             StoreUser.update(admin=True)
+
+        return render(request, self.template, locals())
