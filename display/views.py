@@ -39,7 +39,7 @@ class AuthCallback(View):
         print("scope=====> ", scope)
         store_hash = context.split('/')[1]
         print("store has=====> ", store_hash)
-        redirect = settings.APP_URL + '/bigcommerce/callback'
+        redirect = settings.APP_URL + 'bigcommerce/callback'
         print("redirect=====> ", redirect)
         client = BigcommerceApi(client_id=settings.APP_CLIENT_ID, store_hash=store_hash)
         token = client.oauth_fetch_token(settings.APP_CLIENT_SECRET, code, context, scope, redirect)
