@@ -46,7 +46,8 @@ class AuthCallback(View):
         bc_user_id = token['user']['id']
         email = token['user']['email']
         access_token = token['access_token']
-        store = Store.objects.get(store_hash=store_hash).first()
+
+        store = Store.objects.filter(store_hash=store_hash).first()
         if store is None:
             store = Store.create(store_hash, access_token, scope)
         else:
@@ -55,7 +56,7 @@ class AuthCallback(View):
                 scope=scope,
             )
 
-        user = User.objects.get(bc_id=bc_user_id).first()
+        user = User.objects.filter(bc_id=bc_user_id).first()
         if user is None:
             user = User.create(
                 bc_id=bc_user_id,
@@ -66,7 +67,7 @@ class AuthCallback(View):
                 email=email,
             )
 
-        storeuser = StoreUser.objects.get(
+        storeuser = StoreUser.objects.filter(
             user_id=user.id,
             store_id=store.id,
         ).first()
