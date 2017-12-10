@@ -4,7 +4,7 @@ from django.db import models
 class Store(models.Model):
     store_hash = models.CharField(max_length=1000, null=True, blank=True)
     access_token = models.CharField(max_length=1000, null=True, blank=True)
-    scope = models.CharField(max_length=1000, null=True, blank=True)
+    scope = models.TextField(max_length=255, null=True, blank=True)
     admin_storeuser_id = models.IntegerField(null=True, blank=True, default=True)
     storeusers = models.ManyToManyField('StoreUser',)
 
