@@ -24,7 +24,7 @@ class User(models.Model):
 class StoreUser(models.Model):
     store_id = models.ForeignKey(Store, on_delete=models.CASCADE)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    admin = models.BooleanField(default=True)
+    admin = models.BooleanField(default=False)
 
     def __str__(self):
         return str(self.store_id)
