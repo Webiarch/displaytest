@@ -80,7 +80,11 @@ class AuthCallback(View):
         ).first()
 
         if not storeuser:
-            storeuser = StoreUser.objects.create(store, user, admin=True)
+            storeuser = StoreUser.objects.create(
+                store_id=store,
+                user_id=user,
+                admin=True,
+            )
         else:
             StoreUser.objects.update(admin=True)
 
