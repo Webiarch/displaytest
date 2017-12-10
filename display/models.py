@@ -6,7 +6,7 @@ class Store(models.Model):
     access_token = models.CharField(max_length=100, null=True, blank=True)
     scope = models.CharField(max_length=100, null=True, blank=True)
     admin_storeuser_id = models.IntegerField(null=True, blank=True, default=True)
-    storeusers = models.ManyToManyField('StoreUser')
+    storeusers = models.ManyToManyField('StoreUser', null=True)
 
     def __str__(self):
         return self.store_hash
@@ -15,15 +15,15 @@ class Store(models.Model):
 class User(models.Model):
     bc_id = models.IntegerField(null=True, blank=True)
     email = models.CharField(max_length=100, null=True, blank=False)
-    storeusers = models.ManyToManyField('StoreUser')
+    storeusers = models.ManyToManyField('StoreUser', null=True)
 
     def __str__(self):
         return self.bc_id
 
 
 class StoreUser(models.Model):
-    store_id = models.ForeignKey(Store)
-    user_id = models.ForeignKey(User)
+    store_id = models.ForeignKey(Store, null=True)
+    user_id = models.ForeignKey(User, null=True)
     admin = models.BooleanField(default=False)
 
     def __str__(self):
