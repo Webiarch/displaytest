@@ -30,3 +30,4 @@ class StoreUser(models.Model):
         return self.store_id
 
 
+
