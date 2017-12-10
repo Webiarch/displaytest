@@ -1,6 +1,15 @@
 from django.db import models
 
 
+class StoreUser(models.Model):
+    store_id = models.ForeignKey(Store)
+    user_id = models.ForeignKey(User)
+    admin = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.store_id
+
+
 class User(models.Model):
     bc_id = models.IntegerField(null=True, blank=True)
     email = models.CharField(max_length=100, null=True, blank=False)
@@ -21,12 +30,5 @@ class Store(models.Model):
         return self.store_hash
 
 
-class StoreUser(models.Model):
-    store_id = models.ForeignKey(Store)
-    user_id = models.ForeignKey(User)
-    admin = models.BooleanField(default=False)
-
-    def __str__(self):
-        return self.store_id
 
 
