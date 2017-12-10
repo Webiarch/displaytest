@@ -95,3 +95,44 @@ class AuthCallback(View):
             print("============>>Update new storeuser")
 
         return HttpResponseRedirect(settings.APP_URL)
+
+
+class Load(View):
+
+    template = "callback.html"
+
+    def get(self, request):
+        payload = request.GET['signed_payload']
+        print("========>", payload)
+        user_data = BigcommerceApi.oauth_verify_payload(payload, settings.APP_CLIENT_SECRET)
+        if user_data is False:
+            return "Payload verification failed!"
+
+        bc_user_id = user_data['user']['id']
+        print("=========>", bc_user_id)
+        email = user_data['user']['email']
+        print("=========>", email)
+        store_hash = user_data['store_hash']
+        print("=========>", store_hash)
+
+        store = Store.objects.filter(store_hash=store_hash).first()
+        if store is None:
+            return "Store not found!"
+
+        user = User.objects.filter(bc_id=bc_user_id).first()
+        if user is None:
+            user = User.objects.create(
+                bc_id=bc_user_id,
+                email=email,
+            )
+            print("============>>Create new user")
+
+        storeuser = StoreUser.objects.filter(user_id=user.id, store_id=store.id).first()
+        if storeuser is None:
+            storeuser = StoreUser.objects.create(
+                store_id=store,
+                user_id=user,
+            )
+            print("============>>Create new userstore")
+
+        return HttpResponseRedirect(settings.APP_URL)
