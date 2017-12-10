@@ -1,5 +1,6 @@
 import os
 from django.conf import settings
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from bigcommerce.api import BigcommerceApi
 from django.views import View
@@ -93,4 +94,4 @@ class AuthCallback(View):
             StoreUser.objects.update(admin=True)
             print("============>>Update new storeuser")
 
-        return render(request, self.template, locals())
+        return HttpResponseRedirect(settings.APP_URL)
