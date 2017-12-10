@@ -27,4 +27,4 @@ class StoreUser(models.Model):
     admin = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.store_id
+        return str(self.store_id)
