@@ -1,8 +1,6 @@
 from django.db import models
 
 
-
-
 class Store(models.Model):
     store_hash = models.CharField(max_length=100, null=True, blank=True)
     access_token = models.CharField(max_length=100, null=True, blank=True)
