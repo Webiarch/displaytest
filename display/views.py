@@ -45,6 +45,7 @@ class AuthCallback(View):
         token = client.oauth_fetch_token(settings.APP_CLIENT_SECRET, code, context, scope, redirect)
         bc_user_id = token['user']['id']
         email = token['user']['email']
+        print("email===>", email)
         access_token = token['access_token']
         print("access_tocken====>", access_token)
 

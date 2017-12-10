@@ -18,7 +18,7 @@ class User(models.Model):
     storeusers = models.ManyToManyField('StoreUser',)
 
     def __str__(self):
-        return self.bc_id
+        return self.email
 
 
 class StoreUser(models.Model):
