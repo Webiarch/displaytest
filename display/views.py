@@ -51,7 +51,11 @@ class AuthCallback(View):
         store = Store.objects.filter(store_hash=store_hash).first()
         if store is None:
             print("============>>Create new store")
-            store = Store.objects.create(store_hash, access_token, scope,)
+            store = Store.objects.create(
+                store_hash=store_hash,
+                access_token=access_token,
+                scope=scope,
+            )
         else:
             store.objects.update(
                 access_token=access_token,
