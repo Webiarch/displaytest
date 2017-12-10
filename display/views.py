@@ -58,7 +58,7 @@ class AuthCallback(View):
                 scope=scope,
             )
         else:
-            store.objects.update(
+            Store.objects.update(
                 access_token=access_token,
                 scope=scope,
             )
