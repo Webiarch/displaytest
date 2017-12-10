@@ -1,13 +1,6 @@
 from django.db import models
 
 
-class StoreUser(models.Model):
-    store_id = models.ForeignKey(Store)
-    user_id = models.ForeignKey(User)
-    admin = models.BooleanField(default=False)
-
-    def __str__(self):
-        return self.store_id
 
 
 class Store(models.Model):
@@ -30,5 +23,12 @@ class User(models.Model):
         return self.bc_id
 
 
+class StoreUser(models.Model):
+    store_id = models.ForeignKey(Store)
+    user_id = models.ForeignKey(User)
+    admin = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.store_id
 
 
