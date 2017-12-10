@@ -46,11 +46,12 @@ class AuthCallback(View):
         bc_user_id = token['user']['id']
         email = token['user']['email']
         access_token = token['access_token']
+        print("access_tocken====>", access_token)
 
         store = Store.objects.filter(store_hash=store_hash).first()
         if store is None:
             print("============>>Create new store")
-            store = Store.objects.create(store_hash, access_token, scope, '1')
+            store = Store.objects.create(store_hash, access_token, scope,)
         else:
             store.objects.update(
                 access_token=access_token,
