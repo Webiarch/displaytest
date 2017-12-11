@@ -94,6 +94,7 @@ class AuthCallback(View):
             StoreUser.objects.update(admin=True)
             print("============>>Update new storeuser")
 
+        print("====>Auth redirect APP_URL", settings.APP_URL)
         return HttpResponseRedirect(settings.APP_URL)
 
 
@@ -135,4 +136,5 @@ class Load(View):
             )
             print("============>>Create new userstore")
 
+        print("====>Load redirect APP_URL", settings.APP_URL)
         return HttpResponseRedirect(settings.APP_URL)
