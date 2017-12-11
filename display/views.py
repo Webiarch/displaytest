@@ -141,4 +141,4 @@ class Load(View):
             print("============>>Create new userstore")
 
         print("====>Load redirect APP_URL", settings.APP_URL)
-        return HttpResponseRedirect('/')
+        return HttpResponseRedirect(settings.APP_UR)
