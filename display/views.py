@@ -24,6 +24,7 @@ class Display(View):
         # login_token = bigcommerce.customer_login_token.create(api, customer.id)
         # print('%s/login/token/%s' % ('http://localhost:8000', login_token))
         print("display")
+        customer = "customer details"
         return render(request, self.template, locals())
 
 
