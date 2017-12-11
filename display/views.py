@@ -17,11 +17,11 @@ os.environ['APP_CLIENT_SECRET'] = 'oam9jfaj4n7olb6gnxetiza5jozt83h'
 #
 
 
-@xframe_options_exempt
 class Display(View):
 
     template = "display.html"
 
+    @xframe_options_exempt
     def get(self, request):
         # customer = api.Customers.all()
         # login_token = bigcommerce.customer_login_token.create(api, customer.id)
