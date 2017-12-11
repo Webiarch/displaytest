@@ -5,6 +5,8 @@ from django.shortcuts import render
 from bigcommerce.api import BigcommerceApi
 from django.views import View
 from .models import *
+from django.views.decorators.clickjacking import xframe_options_exempt
+
 
 os.environ['APP_CLIENT_SECRET'] = 'oam9jfaj4n7olb6gnxetiza5jozt83h'
 
@@ -15,6 +17,7 @@ os.environ['APP_CLIENT_SECRET'] = 'oam9jfaj4n7olb6gnxetiza5jozt83h'
 #
 
 
+@xframe_options_exempt
 class Display(View):
 
     template = "display.html"
