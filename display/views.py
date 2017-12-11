@@ -108,17 +108,18 @@ class Load(View):
 
     def get(self, request):
         payload = request.GET['signed_payload']
-        print("========>", payload)
+        print("payload========>", payload)
         user_data = BigcommerceApi.oauth_verify_payload(payload, settings.APP_CLIENT_SECRET)
+        print("userdata======>", user_data)
         if user_data is False:
             return "Payload verification failed!"
 
         bc_user_id = user_data['user']['id']
-        print("=========>", bc_user_id)
+        print("bc id=========>", bc_user_id)
         email = user_data['user']['email']
-        print("=========>", email)
+        print("email =========>", email)
         store_hash = user_data['store_hash']
-        print("=========>", store_hash)
+        print("store has=========>", store_hash)
 
         store = Store.objects.filter(store_hash=store_hash).first()
         if store is None:
