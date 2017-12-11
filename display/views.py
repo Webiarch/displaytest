@@ -23,9 +23,12 @@ class Display(View):
         # customer = api.Customers.all()
         # login_token = bigcommerce.customer_login_token.create(api, customer.id)
         # print('%s/login/token/%s' % ('http://localhost:8000', login_token))
-        print("display")
+        print("display===>", request)
         customer = "customer details"
         return render(request, self.template, locals())
+
+    def post(self, request):
+        pass
 
 
 class AuthCallback(View):
