@@ -5,6 +5,8 @@ from django.shortcuts import render
 from bigcommerce.api import BigcommerceApi
 from django.views import View
 from .models import *
+from django.views.decorators.clickjacking import xframe_options_exempt
+
 
 os.environ['APP_CLIENT_SECRET'] = 'oam9jfaj4n7olb6gnxetiza5jozt83h'
 
@@ -19,6 +21,7 @@ class Display(View):
 
     template = "display.html"
 
+    @xframe_options_exempt
     def get(self, request):
         # customer = api.Customers.all()
         # login_token = bigcommerce.customer_login_token.create(api, customer.id)
