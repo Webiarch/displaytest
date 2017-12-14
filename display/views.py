@@ -7,7 +7,6 @@ from django.views import View
 from .models import *
 from django.views.decorators.clickjacking import xframe_options_exempt
 
-
 os.environ['APP_CLIENT_SECRET'] = 'oam9jfaj4n7olb6gnxetiza5jozt83h'
 
 # api = BigcommerceApi(
@@ -23,16 +22,18 @@ class Display(View):
 
     @xframe_options_exempt
     def get(self, request):
+
         # customer = api.Customers.all()
         # login_token = bigcommerce.customer_login_token.create(api, customer.id)
         # print('%s/login/token/%s' % ('http://localhost:8000', login_token))
+
         print("display===>", request)
         customer = "customer details Name "
+        customer += "hello"
         return render(request, self.template, locals())
 
     def post(self, request):
         pass
-
 
 class AuthCallback(View):
 
