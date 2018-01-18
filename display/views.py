@@ -28,7 +28,7 @@ class Display(View):
         # print('%s/login/token/%s' % ('http://localhost:8000', login_token))
 
         print("display===>", request)
-        customer = "customer details Name "
+        customer = "customer details Name test"
         customer += "hello"
         return render(request, self.template, locals())
 
@@ -51,7 +51,7 @@ class AuthCallback(View):
         redirect = settings.APP_URL + 'bigcommerce/callback'
         print("redirect=====> ", redirect)
         client = BigcommerceApi(client_id=settings.APP_CLIENT_ID, store_hash=store_hash)
-        token = client.oauth_fetch_token(settings.APP_CLIENT_SECRET, code, context, scope, redirect)
+        token = client.oauth_fetch_token (settings.APP_CLIENT_SECRET, code, context, scope, redirect)
         bc_user_id = token['user']['id']
         email = token['user']['email']
         print("email===>", email)
