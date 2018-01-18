@@ -1,3 +1,4 @@
+
 import os
 from django.conf import settings
 from django.http import HttpResponseRedirect
@@ -28,7 +29,8 @@ class Display(View):
         # print('%s/login/token/%s' % ('http://localhost:8000', login_token))
 
         print("display===>", request)
-        customer = "customer details Name test n ew"
+        customer = "hello work !"
+
         customer += "hello"
         return render(request, self.template, locals())
 
