@@ -29,7 +29,7 @@ class Display(View):
         # print('%s/login/token/%s' % ('http://localhost:8000', login_token))
 
         print("display===>", request)
-        customer = "customer Details Name test abc "
+        customer = "customer Details Name test abc"
 
         customer += "hello"
         return render(request, self.template, locals())
